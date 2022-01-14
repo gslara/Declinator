@@ -24,7 +24,6 @@ import android.view.Menu;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -76,8 +75,8 @@ public class MainActivity extends AppCompatActivity
 
 
     public void buscar(View view) {
-        if(generoF.isChecked()== true || generoM.isChecked()== true) {
-            if(animadoS.isChecked()== true || animadoN.isChecked()== true) {
+        if(generoF.isChecked() || generoM.isChecked()) {
+            if(animadoS.isChecked() || animadoN.isChecked()) {
                 Intent tabla = new Intent(this, TableActivity.class);
                 tabla.putExtra("palabra", palabra.getText().toString());
                 tabla.putExtra("generoF", generoF.isChecked());
@@ -88,7 +87,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(tabla);
             }
         }
-        else if(generoN.isChecked()== true) {
+        else if(generoN.isChecked()) {
             Intent tabla = new Intent(this, TableActivity.class);
             tabla.putExtra("palabra", palabra.getText().toString());
             tabla.putExtra("generoF", generoF.isChecked());
